@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:sarweal/constants/enums.dart';
@@ -17,20 +18,21 @@ class AuthService {
   ///
   ///
   ///
-  static Future<ApiResponse?> login(String phone) async {
+  static Future<ApiResponse?> sendOtp(String phone) async {
     try {
       final fcmToken = await FirebaseMessaging.instance.getToken();
       var response = await http.post(
         ApiService.loginUrl,
         headers: ApiService.headers,
-        body: jsonEncode(<String, String>{"phone": phone, "token": fcmToken ?? "Token $phone"}),
+        body: jsonEncode(<String, String>{"phone": phone, "token": fcmToken ?? "token $phone"}),
       );
+      debugPrint(response.body);
       if (response.statusCode == 200) {
         return ApiResponse(
             success: true, data: response.body, message: ResponseMessage.sended, code: 200);
       } else if (response.statusCode == 422) {
         return ApiResponse(
-            success: false, data: response.body, message: ResponseMessage.phoneError, code: 422);
+            success: false, data: response.body, message: ResponseMessage.wrongPhone, code: 422);
       }
     } on SocketException {
       return ApiResponse(success: false, message: ResponseMessage.connectionError, code: 500);
@@ -55,12 +57,12 @@ class AuthService {
         ///save data's in local storage
         _manager.login("+993 $phone", accesstoken, refreshtoken, user, verifytoken);
 
-        return ApiResponse(success: true, code: 200);
+        return ApiResponse(success: true, message: ResponseMessage.codeVerified, code: 200);
       } else if (response.statusCode == 404) {
-        return ApiResponse(success: false, code: 404);
+        return ApiResponse(success: false, message: ResponseMessage.wrongCode, code: 404);
       }
     } on SocketException {
-      return ApiResponse(success: false, code: 500);
+      return ApiResponse(success: false, message: ResponseMessage.connectionError, code: 500);
     }
     return null;
   }

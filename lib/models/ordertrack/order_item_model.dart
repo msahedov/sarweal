@@ -45,8 +45,10 @@ class OrderItemModel {
       color: data['color'],
       price: data['price'],
       stepId: data['step_id'],
-      photo: "http://admin.sarweal.com/" + data['photo'],
-      steps: (data['steps'] as List<dynamic>?)?.map((e) => OrderItemStep.fromMap(e as Map<String, dynamic>)).toList(),
+      photo: 'http://admin.sarweal.com/' + data['photo'],
+      steps: (data['steps'] as List<dynamic>?)
+          ?.map((e) => OrderItemStep.fromMap(e as Map<String, dynamic>))
+          .toList(),
     );
   }
 

@@ -111,5 +111,6 @@ class NewOrderItemModel {
   }
 
   @override
-  int get hashCode => quantity.hashCode ^ color.hashCode ^ size.hashCode ^ image.hashCode ^ link.hashCode;
+  int get hashCode =>
+      quantity.hashCode ^ color.hashCode ^ size.hashCode ^ image.hashCode ^ link.hashCode;
 }

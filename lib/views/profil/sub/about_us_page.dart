@@ -77,15 +77,6 @@ class AboutUsPage extends StatelessWidget {
             ),
             Spacer(),
 
-            // TextButton(
-            //   onPressed: () {},
-            //   style: TextButton.styleFrom(padding: EdgeInsets.zero),
-            //   child: Text(
-            //     "Ulanylyş düzgünleri we kadalary",
-            //     textAlign: TextAlign.center,
-            //     style: Theme.of(context).textTheme.caption?.copyWith(color: Colors.grey.shade400),
-            //   ),
-            // ),
             RichText(
               textAlign: TextAlign.center,
               text: TextSpan(

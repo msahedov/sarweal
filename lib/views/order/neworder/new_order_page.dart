@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
+import 'package:sarweal/views/bottom/bottom_nav_bar.dart';
 import 'package:sarweal/views/order/neworder/info.dart';
 import 'package:sarweal/views/order/neworder/items.dart';
 import 'package:sarweal/views/order/neworder/shipment.dart';
@@ -10,7 +11,7 @@ import 'package:sarweal/views/order/orders_page.dart';
 class NewOrderPage extends StatelessWidget {
   NewOrderPage({Key? key, this.subPageController}) : super(key: key);
 
-  final PageController? subPageController;
+  final TabController? subPageController;
 
   ///
   /// route name
@@ -60,7 +61,9 @@ class NewOrderPage extends StatelessWidget {
               padding: EdgeInsets.zero,
               splashRadius: 25,
               onPressed: () {
-                subPageController?.previousPage(duration: duration, curve: Curves.linear);
+                subPageController?.animateTo(0);
+                pageIndex.value = 0;
+                //subPageController?.previousPage(duration: duration, curve: Curves.linear);
               },
               visualDensity: VisualDensity.adaptivePlatformDensity,
               icon: const Icon(

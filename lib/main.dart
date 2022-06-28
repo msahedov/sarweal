@@ -7,11 +7,11 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:sarweal/constants/constants.dart';
-import 'package:sarweal/views/screen_repository.dart';
 import 'package:sarweal/service/routes.dart';
 import 'service/locale.service.dart';
 import 'l10n/translations.dart';
 import 'service/auth.manager.dart';
+import 'views/bottom/bottom_nav_bar.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

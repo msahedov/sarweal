@@ -10,6 +10,8 @@ class NewOrderModel {
   String? _surName;
   List<NewOrderItemModel>? _orderItems;
 
+  NewOrderModel({customerAddress, note, orderItems});
+
   String? get phone => _phone;
 
   set phone(String? phone) {
@@ -46,8 +48,6 @@ class NewOrderModel {
     _orderItems = items;
   }
 
-  NewOrderModel({customerAddress, note, orderItems});
-
   @override
   String toString() {
     return 'NewOrderModel(customerAddress: $customerAddress, note: $note, orderItems: $orderItems)';
@@ -56,7 +56,9 @@ class NewOrderModel {
   factory NewOrderModel.fromMap(Map<String, dynamic> data) => NewOrderModel(
         customerAddress: data['customerAddress'] as String?,
         note: data['note'] as String?,
-        orderItems: (data['orderItems'] as List<dynamic>?)?.map((item) => NewOrderItemModel.fromMap(item as Map<String, dynamic>)).toList(),
+        orderItems: (data['orderItems'] as List<dynamic>?)
+            ?.map((item) => NewOrderItemModel.fromMap(item as Map<String, dynamic>))
+            .toList(),
       );
 
   Map<String, dynamic> toMap() => {

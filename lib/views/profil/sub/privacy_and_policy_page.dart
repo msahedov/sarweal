@@ -20,6 +20,7 @@ class PrivacyAndPolicy extends StatelessWidget {
             statusBarColor: Colors.white, statusBarIconBrightness: Brightness.dark),
         leading: IconButton(
           onPressed: () => Get.back(),
+          splashRadius: 25,
           icon: const Icon(
             IconlyLight.arrowLeft2,
             color: Colors.black,

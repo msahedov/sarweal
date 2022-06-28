@@ -182,11 +182,11 @@ class MaskedInputFormatter extends TextInputFormatter {
 }
 
 bool isDigit(String? character) {
-  final RegExp _digitRegExp = RegExp(r'[-0-9]+');
+  final RegExp digitRegExp = RegExp(r'[-0-9]+');
   if (character == null || character.isEmpty || character.length > 1) {
     return false;
   }
-  return _digitRegExp.stringMatch(character) != null;
+  return digitRegExp.stringMatch(character) != null;
 }
 
 class FormattedValue {

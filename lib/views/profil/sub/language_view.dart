@@ -17,7 +17,7 @@ class LanguageView extends StatefulWidget {
 
 class _LanguageViewState extends State<LanguageView> {
   LocaleController get controller => LocaleController();
-  ValueNotifier<LanguageCode> _LanguageCode = ValueNotifier(LanguageCode.ru);
+  final ValueNotifier<LanguageCode> _languageCode = ValueNotifier(LanguageCode.ru);
 
   @override
   void initState() {
@@ -45,7 +45,7 @@ class _LanguageViewState extends State<LanguageView> {
             )),
       ),
       body: ValueListenableBuilder(
-          valueListenable: _LanguageCode,
+          valueListenable: _languageCode,
           builder: (BuildContext context, LanguageCode l, Widget? child) {
             return Container(
               decoration: const BoxDecoration(
@@ -64,7 +64,7 @@ class _LanguageViewState extends State<LanguageView> {
                   ListTile(
                       horizontalTitleGap: 5,
                       onTap: () {
-                        _LanguageCode.value = LanguageCode.tk;
+                        _languageCode.value = LanguageCode.tk;
                         controller.changeApplocale = "tk";
                       },
                       leading: const CircleAvatar(
@@ -77,14 +77,14 @@ class _LanguageViewState extends State<LanguageView> {
                           groupValue: l,
                           onChanged: (val) {
                             setState(() {
-                              _LanguageCode.value = val ?? LanguageCode.tk;
+                              _languageCode.value = val ?? LanguageCode.tk;
                               controller.changeApplocale = "tk";
                             });
                           })),
                   ListTile(
                       horizontalTitleGap: 5,
                       onTap: () {
-                        _LanguageCode.value = LanguageCode.ru;
+                        _languageCode.value = LanguageCode.ru;
                         controller.changeApplocale = "ru";
                       },
                       leading: const CircleAvatar(
@@ -96,7 +96,7 @@ class _LanguageViewState extends State<LanguageView> {
                         value: LanguageCode.ru,
                         onChanged: (val) {
                           setState(() {
-                            _LanguageCode.value = val ?? LanguageCode.ru;
+                            _languageCode.value = val ?? LanguageCode.ru;
                             controller.changeApplocale = "ru";
                           });
                         },
@@ -111,9 +111,9 @@ class _LanguageViewState extends State<LanguageView> {
 
   void initilizeAppLocale() {
     if (Get.locale?.languageCode == "tk") {
-      _LanguageCode.value = LanguageCode.tk;
+      _languageCode.value = LanguageCode.tk;
     } else {
-      _LanguageCode.value = LanguageCode.ru;
+      _languageCode.value = LanguageCode.ru;
     }
   }
 }

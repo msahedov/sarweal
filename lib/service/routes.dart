@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:sarweal/controllers/order.add.controller.dart';
 import 'package:sarweal/controllers/order.controller.dart';
 import 'package:sarweal/models/order.model.dart';
+import 'package:sarweal/views/bottom/bottom_nav_bar.dart';
 import 'package:sarweal/views/order/neworder/calculator.dart';
 import 'package:sarweal/views/profil/sub/privacy_and_policy_page.dart';
 import 'package:sarweal/views/screen_repository.dart';
@@ -26,7 +27,7 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
         fullscreenDialog: true,
         binding: BindingsBuilder.put(() => OrderController()),
         settings: RouteSettings(name: settings.name),
-        page: () => OrdersPage(),
+        page: () => const OrdersPage(),
       );
 
     ///Orders Page
@@ -45,7 +46,8 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
         maintainState: true,
         transition: Transition.downToUp,
         fullscreenDialog: true,
-        binding: BindingsBuilder.put(() => OrderAddController()), //lazyPut(() => OrderAddController()),
+        binding:
+            BindingsBuilder.put(() => OrderAddController()), //lazyPut(() => OrderAddController()),
         settings: RouteSettings(name: settings.name),
         page: () => NewOrderPage(),
       );
@@ -101,7 +103,7 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
         routeName: AboutUsPage.routeName,
         transition: Transition.fadeIn,
         settings: RouteSettings(name: settings.name),
-        page: () => AboutUsPage(),
+        page: () => const AboutUsPage(),
       );
 
     ///Contacts
@@ -112,7 +114,7 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
         fullscreenDialog: true,
         transition: Transition.fadeIn,
         settings: RouteSettings(name: settings.name),
-        page: () => ContactsPage(),
+        page: () => const ContactsPage(),
       );
 
     ///Question Page
@@ -123,7 +125,7 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
         fullscreenDialog: true,
         transition: Transition.fadeIn,
         settings: RouteSettings(name: settings.name),
-        page: () => QuestionPage(),
+        page: () => const QuestionPage(),
       );
     case PrivacyAndPolicy.routeName:
       return GetPageRoute(
@@ -132,7 +134,7 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
         fullscreenDialog: true,
         transition: Transition.fade,
         settings: RouteSettings(name: settings.name),
-        page: () => PrivacyAndPolicy(),
+        page: () => const PrivacyAndPolicy(),
       );
 
     ///Question Page
@@ -143,11 +145,12 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
         fullscreenDialog: true,
         transition: Transition.fadeIn,
         settings: RouteSettings(name: settings.name),
-        page: () => LanguageView(),
+        page: () => const LanguageView(),
       );
 
     /// default
     default:
-      return GetPageRoute(settings: RouteSettings(name: settings.name), page: () => OrdersPage());
+      return GetPageRoute(
+          settings: RouteSettings(name: settings.name), page: () => const OrdersPage());
   }
 }

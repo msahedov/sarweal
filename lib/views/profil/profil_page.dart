@@ -23,7 +23,6 @@ class _ProfilPageState extends State<ProfilPage> with LocalStorage {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
-        extendBody: true,
         appBar: AppBar(
           automaticallyImplyLeading: false,
           leading: IconButton(
@@ -35,77 +34,71 @@ class _ProfilPageState extends State<ProfilPage> with LocalStorage {
                 color: Colors.black,
               )),
           systemOverlayStyle: const SystemUiOverlayStyle(
-              statusBarColor: fonColor_2, statusBarIconBrightness: Brightness.dark),
+              statusBarColor: Colors.white, statusBarIconBrightness: Brightness.dark),
           elevation: 0.0,
-          backgroundColor: fonColor_2,
+          backgroundColor: Colors.white, //fonColor_2,
         ),
-        body: Container(
-          decoration: const BoxDecoration(
-              color: fonColor_1,
-              image: DecorationImage(
-                  image: AssetImage("assets/images/backgraund.png"), fit: BoxFit.cover)),
-          child: ListView(
-            physics: const NeverScrollableScrollPhysics(),
-            padding: const EdgeInsets.symmetric(horizontal: 5),
-            children: [
-              Obx(() => Get.find<AuthManager>().isLogged.value
-                  ? Row(
-                      children: [
-                        Container(
-                          height: 30,
-                          width: 5,
-                          decoration: BoxDecoration(
-                            borderRadius: circular5,
-                            color: primaryColor_2,
-                          ),
+        body: ListView(
+          physics: const NeverScrollableScrollPhysics(),
+          padding: const EdgeInsets.symmetric(horizontal: 5),
+          children: [
+            Obx(() => Get.find<AuthManager>().isLogged.value
+                ? Row(
+                    children: [
+                      Container(
+                        height: 30,
+                        width: 5,
+                        decoration: BoxDecoration(
+                          borderRadius: circular5,
+                          color: primaryColor_2,
                         ),
-                        // myText("phone".tr),
-                      ],
-                    )
-                  : const SizedBox.shrink()),
-              Obx(() => Get.find<AuthManager>().isLogged.value
-                  ? buttonProfile(
-                      name: getDataInDisk(StorageKey.phone.toString()) ?? " ",
-                      icon: Icons.call, //IconlyBold.call,
-                      onTap: () {},
-                    )
-                  : buttonProfile(
-                      name: "login_btn".tr,
-                      icon: Icons.login_outlined, //IconlyLight.login,
-                      onTap: () {
-                        Get.toNamed(LoginScreen.routeName);
-                      })),
-              divider,
-              buttonProfile(
-                name: "change_locale".tr,
-                icon: Icons.language_outlined,
-                onTap: () => Get.toNamed(LanguageView.routeName),
-              ),
-              divider,
-              buttonProfile(
-                name: "contact_us".tr,
-                icon: Icons.message_outlined, //IconlyLight.chat,
-                onTap: () => Get.toNamed(ContactsPage.routeName),
-              ),
-              divider,
-              buttonProfile(
-                name: "question_answer".tr,
-                icon: Icons.help_outline_outlined,
-                onTap: () => Get.toNamed(QuestionPage.routeName),
-              ),
-              divider,
-              buttonProfile(
-                name: "about_us".tr,
-                icon: Icons.info_outline, //IconlyLight.infoSquare,
-                onTap: () => Get.toNamed(AboutUsPage.routeName),
-              ),
-              divider,
-              Obx(() => Get.find<AuthManager>().isLogged.value ? divider : const SizedBox.shrink()),
-              Obx(() => Get.find<AuthManager>().isLogged.value
-                  ? buttonProfile(name: "log_out".tr, icon: Icons.logout, onTap: _logout)
-                  : const SizedBox.shrink()),
-            ],
-          ),
+                      ),
+                      // myText("phone".tr),
+                    ],
+                  )
+                : const SizedBox.shrink()),
+            Obx(() => Get.find<AuthManager>().isLogged.value
+                ? buttonProfile(
+                    name: getDataInDisk(StorageKey.phone.toString()) ?? " ",
+                    icon: Icons.call, //IconlyBold.call,
+                    onTap: () {},
+                  )
+                : buttonProfile(
+                    name: "login_btn".tr,
+                    icon: Icons.login_outlined, //IconlyLight.login,
+                    onTap: () {
+                      Get.toNamed(LoginScreen.routeName);
+                    })),
+            divider,
+            buttonProfile(
+              name: "change_locale".tr,
+              icon: Icons.language_outlined,
+              onTap: () => Get.toNamed(LanguageView.routeName),
+            ),
+            divider,
+            buttonProfile(
+              name: "contact_us".tr,
+              icon: Icons.message_outlined, //IconlyLight.chat,
+              onTap: () => Get.toNamed(ContactsPage.routeName),
+            ),
+            divider,
+            buttonProfile(
+              name: "question_answer".tr,
+              icon: Icons.help_outline_outlined,
+              onTap: () => Get.toNamed(QuestionPage.routeName),
+            ),
+            divider,
+            buttonProfile(
+              name: "about_us".tr,
+              icon: Icons.info_outline, //IconlyLight.infoSquare,
+              onTap: () => Get.toNamed(AboutUsPage.routeName),
+            ),
+            divider,
+            Obx(() => Get.find<AuthManager>().isLogged.value ? divider : const SizedBox.shrink()),
+            Obx(() => Get.find<AuthManager>().isLogged.value
+                ? buttonProfile(name: "log_out".tr, icon: Icons.logout, onTap: _logout)
+                : const SizedBox.shrink()),
+          ],
         ));
   }
 
