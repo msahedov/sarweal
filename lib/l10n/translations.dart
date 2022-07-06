@@ -12,15 +12,19 @@ class LocaleString extends Translations {
 
           ///Question Page Words
           "q_1": "Nädip sargyt edilýär?",
-          "a_1": "Sargytlarym sahypasynda  sargyt etmek düwmesine basyp gerekli harydyňyzyň skrinşotyny ugratmaly.",
+          "a_1":
+              "Sargytlarym sahypasynda  sargyt etmek düwmesine basyp gerekli harydyňyzyň skrinşotyny ugratmaly.",
           "q_2": "Haýsy harytlary sargyt edip bolýar?",
-          "a_2": "Islendik harytlary sargyt edip bilersiňiz. Sargytlaryňyz boýunça operatorlarymyz siz bilen goşmaça habarlaşarlar.",
+          "a_2":
+              "Islendik harytlary sargyt edip bilersiňiz. Sargytlaryňyz boýunça operatorlarymyz siz bilen goşmaça habarlaşarlar.",
           "q_3": "Sargydymy we olaryň jemi bahalaryny bahalaryny nirede görüp bilerin?",
-          "a_3": "Sargytlaryňyzy we olaryň bahalaryny “Sargytlarym” sahypasyndan tanyşyp bilersiňiz.",
+          "a_3":
+              "Sargytlaryňyzy we olaryň bahalaryny “Sargytlarym” sahypasyndan tanyşyp bilersiňiz.",
           "q_4": "Sargan harydym näçe wagtdan gelýär?",
           "a_4": "Harytlaryňyzy ortaça 15-20 gün aralykda getirip berýäris.",
           "q_5": "Tölegini haçan bermeli?",
-          "a_5": "Sargyt eden günüňiz ýa-da harydy eliňize alandan soňra töleg geçirmeli. Eger-de tölegi öňünden berilen ýagdaýynda arzan tarifden peýdalanyp bilersiňiz.",
+          "a_5":
+              "Sargyt eden günüňiz ýa-da harydy eliňize alandan soňra töleg geçirmeli. Eger-de tölegi öňünden berilen ýagdaýynda arzan tarifden peýdalanyp bilersiňiz.",
 
           ///Orders Status Page
           "status_title": "SARGYT",
@@ -35,7 +39,8 @@ class LocaleString extends Translations {
           "call_operator": "HABARLAŞMAK",
           ////Orders Page(Main)
           "connection_title_txt": "Internet birikmesi ýok",
-          "connection_subtitle_txt": "Internede birikdiriň we gaýtadan synanyşyň", //"Häzirki wagtda haýyşyňyzy\n ýerine ýetirip bilmeris,\n soňrak synanyşyň.",
+          "connection_subtitle_txt":
+              "Internede birikdiriň we gaýtadan \nsynanyşyň", //"Häzirki wagtda haýyşyňyzy\n ýerine ýetirip bilmeris,\n soňrak synanyşyň.",
           "orders_connection_btn_txt": "TÄZEDEN SYNANYŞ",
           "empty_title_txt": "Sargydyňyz tapylmady",
           "empty_subtitle_txt": "Häzirki wagtda sizde\n sargyt ýok. ",
@@ -86,7 +91,8 @@ class LocaleString extends Translations {
           "empty_body_txt": " Sargamak isleýän \nharydyňyzyň suratyny saýlaň \nwe ugradyň.",
           "empty_btn_txt": "HARYT SAÝLAMAK",
           "dialog_header": "Sargydyňyz üçin sag boluň!",
-          "dialog_body": "Sargydyňyz kabul edildi.\nÝakyn wagtda buýrugy \ntassyklamak üçin dolandyryjy \nsize ýüz tutar.",
+          "dialog_body":
+              "Sargydyňyz kabul edildi.\nÝakyn wagtda buýrugy \ntassyklamak üçin dolandyryjy \nsize ýüz tutar.",
           "search_field_label": "Gözleg",
           "search_sheet_title": "Raýonyňyzy saýlaň",
           "phone_empty_val_txt": "Telefon belgiňizi giriziň!",
@@ -123,15 +129,19 @@ class LocaleString extends Translations {
           "yes": "Обновить",
           "no": "Позже",
           "newVersion": "Новая версия !!!",
-          "newVersionTitle": "Вышла новая версия нашей программы, которую вы можете скачать на свой телефон.",
+          "newVersionTitle":
+              "Вышла новая версия нашей программы, которую вы можете скачать на свой телефон.",
 
           ///Questions Page Words
           "q_1": "Как оформить заказ?",
-          "a_1": "На странице «Мои заказы», нажав кнопку «Заказать», вам необходимо отправить скриншоты желаемых товаров.",
+          "a_1":
+              "На странице «Мои заказы», нажав кнопку «Заказать», вам необходимо отправить скриншоты желаемых товаров.",
           "q_2": "Какие товары можно заказывать?",
-          "a_2": "Вы можете заказывать любые виды товаров. В случае необходимости наши операторы свяжутся с вами.",
+          "a_2":
+              "Вы можете заказывать любые виды товаров. В случае необходимости наши операторы свяжутся с вами.",
           "q_3": "Где я могу посмотреть мои заказы и их расценки?",
-          "a_3": "Вы можете ознакомиться о ваших заказах и об их расценках на странице «Мои заказы».",
+          "a_3":
+              "Вы можете ознакомиться о ваших заказах и об их расценках на странице «Мои заказы».",
           "q_4": "Когда приходит заказанный товар?",
           "a_4": "Он будет доставлен вам в течение 20-25 дней после вашего заказа.",
           "q_5": "Когда платить за заказ?",
@@ -151,7 +161,8 @@ class LocaleString extends Translations {
 
           ////Orders Page(Main)
           "connection_title_txt": "Нет подключения к интернету",
-          "connection_subtitle_txt": "Подключитесь к сети и повторите попытку", //"В данный момент мы не можем \nвыполнить ваш запрос.\nПовторите попытку позже.",
+          "connection_subtitle_txt":
+              "Подключитесь к сети и повторите попытку", //"В данный момент мы не можем \nвыполнить ваш запрос.\nПовторите попытку позже.",
           "orders_connection_btn_txt": "ПОПРОБУЙТЕ СНОВА",
           "empty_title_txt": "заказ не найден", //Ваш
           "empty_subtitle_txt": "У вас пока нет заказов.",
@@ -180,7 +191,8 @@ class LocaleString extends Translations {
           "short_val_txt": "Введите правильный номер телефона",
           "correct_val_txt": "Введите правильный номер телефона",
           "accept_val_txt": "Принять условия использования!",
-          "no_connection": "Не удалось подключиться к \nсерверу. Подключитесь к интернету и повторите попытку",
+          "no_connection":
+              "Не удалось подключиться к \nсерверу. Подключитесь к интернету и повторите попытку",
 
           ///Orders Add Page Words
           "p_size": "Размер",
@@ -201,7 +213,8 @@ class LocaleString extends Translations {
           "empty_body_txt": " Выберите скриншот товара и отправьте заказ.",
           "empty_btn_txt": "ВЫБРАТ ТОВАР",
           "dialog_header": "Спасибо за заказ!",
-          "dialog_body": "Ваш заказ принят.\nВ ближайшее время с вами \nсвяжется менеджер для \nподтверждения заказа",
+          "dialog_body":
+              "Ваш заказ принят.\nВ ближайшее время с вами \nсвяжется менеджер для \nподтверждения заказа",
           "search_field_label": "Поиск",
           "search_sheet_title": "Выберите район",
           "phone_empty_val_txt": "Введите номер телефона!",

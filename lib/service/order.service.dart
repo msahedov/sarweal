@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/foundation.dart';
+import 'package:get/get.dart';
 import 'package:http_parser/http_parser.dart';
 import 'package:async/async.dart';
 import 'package:http/http.dart' as http;
@@ -14,13 +15,11 @@ import 'package:sarweal/service/local.storage.dart';
 import 'package:sarweal/models/order.model.dart';
 import 'package:uuid/uuid.dart';
 
-class OrderService {
-  static LocalStorage? _storage;
+class OrderService extends GetxService {
   static Future<List<OrderModel>?> getOrders() async {
     try {
-      final accesstoken = _storage?.getDataInDisk(StorageKey.accesstoken.toString());
-      var response = await http.get(ApiService.orderListUrl,
-          headers: ApiService.authorizationHeader(accesstoken));
+      var response =
+          await http.get(ApiService.orderListUrl, headers: ApiService.authorizationHeaders);
 
       if (response.statusCode == 200) {
         final parsed = json.decode(response.body) as List;
@@ -36,10 +35,9 @@ class OrderService {
   }
 
   static Future<dynamic> getOrderItemsById(String orderId) async {
-    var token = _storage?.getDataInDisk(StorageKey.accesstoken.toString());
     try {
       var response = await http.get(ApiService.orderItemUrl(orderId),
-          headers: ApiService.authorizationHeader(token));
+          headers: ApiService.authorizationHeaders);
 
       if (response.statusCode == 200) {
         final parsed = json.decode(response.body) as List;
@@ -55,12 +53,11 @@ class OrderService {
 
   Future<void> uploadOrder(NewOrderModel newOrder) async {
     try {
-      final String token = _storage?.getDataInDisk(StorageKey.accesstoken.toString());
       final String uuid = const Uuid().v4();
 
       ///request
       final request = http.MultipartRequest("POST", ApiService.orderUploadUrl(uuid));
-      request.headers.addAll(ApiService.authorizationHeader(token));
+      request.headers.addAll(ApiService.authorizationHeaders);
       request.fields["customerAddress"] = newOrder.customerAddress ?? "";
       request.fields["note"] = newOrder.note ?? "";
 

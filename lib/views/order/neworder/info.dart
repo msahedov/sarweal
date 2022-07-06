@@ -41,158 +41,203 @@ class Info extends GetView<OrderAddController> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(padding: const EdgeInsets.fromLTRB(20, 20, 20, 25), children: [
-      TextFormField(
-        keyboardType: TextInputType.name,
-        cursorColor: primaryColor_2,
-        onChanged: (text) {
-          // Get.find<OrderAddController>().orderList[indexOfItem]["size"] = text;
-        },
-        style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black),
-        decoration: InputDecoration(
-            contentPadding: const EdgeInsets.symmetric(horizontal: 20.0),
-            errorBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.grey.shade200), borderRadius: circular5),
-            enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.grey.shade200), borderRadius: circular5),
-            focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.grey.shade200), borderRadius: circular5),
-            disabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.grey.shade200), borderRadius: circular5),
-            focusedErrorBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.grey.shade200), borderRadius: circular5),
-            border: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.grey.shade200), borderRadius: circular5),
-            hintText: "Adyňyz",
-            hintStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.grey)),
-      ),
-      Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10),
-        child: TextFormField(
-          keyboardType: TextInputType.name,
-          cursorColor: primaryColor_2,
-          onChanged: (text) {
-            // Get.find<OrderAddController>().orderList[indexOfItem]["size"] = text;
-          },
-          style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black),
-          decoration: InputDecoration(
-              contentPadding: const EdgeInsets.symmetric(horizontal: 20.0),
-              errorBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey.shade200), borderRadius: circular5),
-              enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey.shade200), borderRadius: circular5),
-              focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey.shade200), borderRadius: circular5),
-              disabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey.shade200), borderRadius: circular5),
-              focusedErrorBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey.shade200), borderRadius: circular5),
-              border: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey.shade200), borderRadius: circular5),
-              hintText: "Familiýaňyz",
-              hintStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.grey)),
-        ),
-      ),
-      TextFormField(
-        keyboardType: TextInputType.phone,
-        cursorColor: primaryColor_2,
-        onChanged: (text) {
-          // Get.find<OrderAddController>().orderList[indexOfItem]["size"] = text;
-        },
-        style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black),
-        decoration: InputDecoration(
-            contentPadding: const EdgeInsets.symmetric(horizontal: 20.0),
-            errorBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.grey.shade200), borderRadius: circular5),
-            enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.grey.shade200), borderRadius: circular5),
-            focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.grey.shade200), borderRadius: circular5),
-            disabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.grey.shade200), borderRadius: circular5),
-            focusedErrorBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.grey.shade200), borderRadius: circular5),
-            border: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.grey.shade200), borderRadius: circular5),
-            hintText: "Telefon belgiňiz",
-            prefixIconConstraints: BoxConstraints(maxHeight: 40),
-            prefixIcon: Padding(
-              padding: const EdgeInsets.only(left: 20),
-              child: Text(
-                "+993 ",
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(10),
+      child: Column(children: [
+        Container(
+          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+          decoration: BoxDecoration(color: Colors.white, borderRadius: circular10),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              TextFormField(
+                keyboardType: TextInputType.name,
+                cursorColor: primaryColor_2,
+                onChanged: (text) {
+                  // Get.find<OrderAddController>().orderList[indexOfItem]["size"] = text;
+                },
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black),
+                decoration: InputDecoration(
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey.shade200),
+                        borderRadius: circular5),
+                    enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey.shade200),
+                        borderRadius: circular5),
+                    focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey.shade200),
+                        borderRadius: circular5),
+                    disabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey.shade200),
+                        borderRadius: circular5),
+                    focusedErrorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey.shade200),
+                        borderRadius: circular5),
+                    border: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey.shade200),
+                        borderRadius: circular5),
+                    hintText: "Adyňyz",
+                    hintStyle:
+                        Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.grey)),
               ),
-            ),
-            hintStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.grey)),
-      ),
-      Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10),
-        child: TextFormField(
-          keyboardType: TextInputType.streetAddress,
-          cursorColor: primaryColor_2,
-          onChanged: (text) {
-            // Get.find<OrderAddController>().orderList[indexOfItem]["size"] = text;
-          },
-          style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black),
-          decoration: InputDecoration(
-              contentPadding: const EdgeInsets.symmetric(horizontal: 20.0),
-              errorBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey.shade200), borderRadius: circular5),
-              enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey.shade200), borderRadius: circular5),
-              focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey.shade200), borderRadius: circular5),
-              disabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey.shade200), borderRadius: circular5),
-              focusedErrorBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey.shade200), borderRadius: circular5),
-              border: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey.shade200), borderRadius: circular5),
-              hintText: "Eltip berme adresi",
-              hintStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.grey)),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: TextFormField(
+                  keyboardType: TextInputType.name,
+                  cursorColor: primaryColor_2,
+                  onChanged: (text) {
+                    // Get.find<OrderAddController>().orderList[indexOfItem]["size"] = text;
+                  },
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black),
+                  decoration: InputDecoration(
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 20.0),
+                      errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey.shade200),
+                          borderRadius: circular5),
+                      enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey.shade200),
+                          borderRadius: circular5),
+                      focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey.shade200),
+                          borderRadius: circular5),
+                      disabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey.shade200),
+                          borderRadius: circular5),
+                      focusedErrorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey.shade200),
+                          borderRadius: circular5),
+                      border: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey.shade200),
+                          borderRadius: circular5),
+                      hintText: "Familiýaňyz",
+                      hintStyle:
+                          Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.grey)),
+                ),
+              ),
+              TextFormField(
+                keyboardType: TextInputType.phone,
+                cursorColor: primaryColor_2,
+                onChanged: (text) {
+                  // Get.find<OrderAddController>().orderList[indexOfItem]["size"] = text;
+                },
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black),
+                decoration: InputDecoration(
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey.shade200),
+                        borderRadius: circular5),
+                    enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey.shade200),
+                        borderRadius: circular5),
+                    focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey.shade200),
+                        borderRadius: circular5),
+                    disabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey.shade200),
+                        borderRadius: circular5),
+                    focusedErrorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey.shade200),
+                        borderRadius: circular5),
+                    border: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey.shade200),
+                        borderRadius: circular5),
+                    hintText: "Telefon belgiňiz",
+                    prefixIconConstraints: BoxConstraints(maxHeight: 40),
+                    prefixIcon: Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: Text(
+                        "+993 ",
+                        style:
+                            Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black),
+                      ),
+                    ),
+                    hintStyle:
+                        Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.grey)),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: TextFormField(
+                  keyboardType: TextInputType.streetAddress,
+                  cursorColor: primaryColor_2,
+                  onChanged: (text) {
+                    // Get.find<OrderAddController>().orderList[indexOfItem]["size"] = text;
+                  },
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black),
+                  decoration: InputDecoration(
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 20.0),
+                      errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey.shade200),
+                          borderRadius: circular5),
+                      enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey.shade200),
+                          borderRadius: circular5),
+                      focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey.shade200),
+                          borderRadius: circular5),
+                      disabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey.shade200),
+                          borderRadius: circular5),
+                      focusedErrorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey.shade200),
+                          borderRadius: circular5),
+                      border: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey.shade200),
+                          borderRadius: circular5),
+                      hintText: "Eltip berme adresi",
+                      hintStyle:
+                          Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.grey)),
+                ),
+              ),
+              TextFormField(
+                keyboardType: TextInputType.text,
+                cursorColor: primaryColor_2,
+                onChanged: (text) {
+                  // Get.find<OrderAddController>().orderList[indexOfItem]["size"] = text;
+                },
+                maxLines: 5,
+                minLines: 5,
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black),
+                decoration: InputDecoration(
+                    contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20.0),
+                    errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey.shade200),
+                        borderRadius: circular5),
+                    enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey.shade200),
+                        borderRadius: circular5),
+                    focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey.shade200),
+                        borderRadius: circular5),
+                    disabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey.shade200),
+                        borderRadius: circular5),
+                    focusedErrorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey.shade200),
+                        borderRadius: circular5),
+                    border: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey.shade200),
+                        borderRadius: circular5),
+                    hintText: "Bellik",
+                    hintStyle:
+                        Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.grey)),
+              ),
+            ],
+          ),
         ),
-      ),
-      TextFormField(
-        keyboardType: TextInputType.text,
-        cursorColor: primaryColor_2,
-        onChanged: (text) {
-          // Get.find<OrderAddController>().orderList[indexOfItem]["size"] = text;
-        },
-        maxLines: 5,
-        minLines: 5,
-        style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black),
-        decoration: InputDecoration(
-            contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20.0),
-            errorBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.grey.shade200), borderRadius: circular5),
-            enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.grey.shade200), borderRadius: circular5),
-            focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.grey.shade200), borderRadius: circular5),
-            disabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.grey.shade200), borderRadius: circular5),
-            focusedErrorBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.grey.shade200), borderRadius: circular5),
-            border: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.grey.shade200), borderRadius: circular5),
-            hintText: "Bellik",
-            hintStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.grey)),
-      ),
-      Padding(
-        padding: const EdgeInsets.only(top: 40),
-        child: ListTile(
-          isThreeLine: true,
-          horizontalTitleGap: 5,
-          leading: Image.asset("assets/images/check.png"),
-          title: Text("Ygtybarly söwda", style: Theme.of(context).textTheme.labelLarge),
-          subtitle: Text("Harydyňyzy almasaňyz pulyňyzy doly yzyna gaýtarylyp beriler",
-              style: Theme.of(context).textTheme.labelSmall),
+        Padding(
+          padding: const EdgeInsets.only(top: 40, bottom: 20),
+          child: ListTile(
+            isThreeLine: true,
+            horizontalTitleGap: 5,
+            leading: Image.asset("assets/images/check.png"),
+            title: Text("Ygtybarly söwda", style: Theme.of(context).textTheme.labelLarge),
+            subtitle: Text("Harydyňyzy almasaňyz pulyňyzy doly yzyna gaýtarylyp beriler",
+                style: Theme.of(context).textTheme.labelSmall),
+          ),
         ),
-      ),
-      Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 20),
-        child: RaisedButton(
-          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 18),
+        RaisedButton(
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
           child: Text(
             "order_btn_txt".tr,
             style: Theme.of(context).textTheme.labelLarge?.copyWith(color: Colors.white),
@@ -202,7 +247,7 @@ class Info extends GetView<OrderAddController> {
               side: const BorderSide(color: primaryColor_2), borderRadius: circular5),
           color: primaryColor_2,
         ),
-      ),
-    ]);
+      ]),
+    );
   }
 }

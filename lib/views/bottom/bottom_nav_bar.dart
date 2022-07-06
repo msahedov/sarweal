@@ -17,7 +17,6 @@ class BottomNavBar extends StatefulWidget {
 }
 
 class _BottomNavBarState extends State<BottomNavBar> with TickerProviderStateMixin {
-  
   TabController? tabController;
   final newVersion = NewVersion(
     iOSId: 'com.bilermennesil.sarweal',
@@ -55,6 +54,7 @@ class _BottomNavBarState extends State<BottomNavBar> with TickerProviderStateMix
     super.initState();
   }
 
+  late final List<NavigationDestination> destinations;
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
@@ -83,6 +83,7 @@ class _BottomNavBarState extends State<BottomNavBar> with TickerProviderStateMix
             //     ProfilPage()
             //   ],
             // ),
+
             bottomNavigationBar: AnimatedCrossFade(
               crossFadeState: index == 1 ? CrossFadeState.showSecond : CrossFadeState.showFirst,
               secondChild: const SizedBox.shrink(),
@@ -98,7 +99,6 @@ class _BottomNavBarState extends State<BottomNavBar> with TickerProviderStateMix
                   },
                   backgroundColor: Colors.white,
                   enableFeedback: true,
-                  elevation: 10.0,
                   currentIndex: index,
                   showSelectedLabels: false,
                   showUnselectedLabels: false,
@@ -109,8 +109,8 @@ class _BottomNavBarState extends State<BottomNavBar> with TickerProviderStateMix
                   selectedItemColor: Colors.grey,
                   unselectedItemColor: Colors.grey,
                   unselectedFontSize: 12,
-                  items: const [
-                    BottomNavigationBarItem(
+                  items: [
+                    const BottomNavigationBarItem(
                         icon: Icon(IconlyLight.home, color: Colors.grey),
                         activeIcon: Icon(
                           IconlyLight.home,
@@ -118,17 +118,24 @@ class _BottomNavBarState extends State<BottomNavBar> with TickerProviderStateMix
                         ),
                         label: "Sargytlarym"),
                     BottomNavigationBarItem(
-                        icon: Icon(
-                          IconlyBold.plus,
-                          color: primaryColor_2,
-                          size: 30,
+                        icon: FloatingActionButton(
+                          backgroundColor: primaryColor_2,
+                          onPressed: () {
+                            pageIndex.value = 1;
+                            tabController?.animateTo(1);
+                          },
+                          child: const Icon(
+                            Icons.add,
+                            color: Colors.white,
+                            size: 30,
+                          ),
                         ),
                         // activeIcon: Icon(
                         //   IconlyBold.plus,
                         //   color: primaryColor_2,
                         // ),
                         label: "Sarga"),
-                    BottomNavigationBarItem(
+                    const BottomNavigationBarItem(
                         icon: Icon(IconlyLight.profile, color: Colors.grey),
                         activeIcon: Icon(
                           IconlyLight.profile,
@@ -138,6 +145,16 @@ class _BottomNavBarState extends State<BottomNavBar> with TickerProviderStateMix
                   ]),
               duration: const Duration(milliseconds: 500),
             ),
+
+            // bottomNavigationBar: NavigationBar(
+            //   destinations: [
+            //     NavigationDestination(icon: Icon(Icons.home), label: "Home"),
+            //     NavigationDestination(icon: Icon(Icons.search), label: "Search"),
+            //     NavigationDestination(icon: Icon(Icons.person), label: "Profile"),
+            //   ],
+            //   selectedIndex: 1,
+            //   onDestinationSelected: (index) {},
+            // ),
           );
         });
   }

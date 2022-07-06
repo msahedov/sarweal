@@ -18,46 +18,53 @@ class Items extends StatelessWidget {
         assignId: true,
         init: OrderAddController(),
         builder: (OrderAddController controller) {
-          return ListView(
+          return SingleChildScrollView(
             keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 25),
-            children: [
-              Text(
-                "1-nji ädim.",
-                style: Theme.of(context).textTheme.titleLarge?.copyWith(height: 2),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 10, bottom: 30),
-                child: Text(
-                    "Harydyň kodyny ýa-da ssylkasyny girizmeli ýa-da skrinşot(suratyny) ýüklemeli, hem-de ululygyny (razmeryny) görkezmeli.",
-                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        height: 1.5, wordSpacing: 1.5, letterSpacing: 0.5, color: Colors.grey)),
-              ),
-              ListView.builder(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: controller.itemList?.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return ItemCard(
-                      indexOfItem: index,
-                    );
-                  }),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 20),
-                child: RaisedButton.icon(
-                    onPressed: () {
-                      controller.addItem(NewOrderItemModel(quantity: 1));
-                    },
-                    color: primaryColor_2,
-                    padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 18),
-                    shape: RoundedRectangleBorder(borderRadius: circular5),
-                    icon: const Icon(Icons.add, color: Colors.white),
-                    label: Text(
-                      "Ýene-de goşmak",
-                      style: Theme.of(context).textTheme.labelLarge?.copyWith(color: Colors.white),
-                    )),
-              )
-            ],
+            child: Column(
+              children: [
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "1-nji ädim.",
+                    style: Theme.of(context).textTheme.titleLarge?.copyWith(height: 2),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 10, bottom: 30),
+                  child: Text(
+                      "Harydyň kodyny ýa-da ssylkasyny girizmeli ýa-da skrinşot(suratyny) ýüklemeli, hem-de ululygyny (razmeryny) görkezmeli.",
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          height: 1.5, wordSpacing: 1.5, letterSpacing: 0.5, color: Colors.grey)),
+                ),
+                ListView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: controller.itemList?.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return ItemCard(
+                        indexOfItem: index,
+                      );
+                    }),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 20),
+                  child: RaisedButton.icon(
+                      onPressed: () {
+                        controller.addItem(NewOrderItemModel(quantity: 1));
+                      },
+                      color: primaryColor_2,
+                      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                      shape: RoundedRectangleBorder(borderRadius: circular5),
+                      icon: const Icon(Icons.add, color: Colors.white),
+                      label: Text(
+                        "Ýene-de goşmak",
+                        overflow: TextOverflow.ellipsis,
+                        style:
+                            Theme.of(context).textTheme.labelLarge?.copyWith(color: Colors.white),
+                      )),
+                )
+              ],
+            ),
           );
         });
     //});

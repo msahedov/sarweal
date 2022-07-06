@@ -6,10 +6,9 @@ import 'package:sarweal/views/order/neworder/info.dart';
 import 'package:sarweal/views/order/neworder/items.dart';
 import 'package:sarweal/views/order/neworder/shipment.dart';
 import 'package:sarweal/views/order/neworder/tariff.dart';
-import 'package:sarweal/views/order/orders_page.dart';
 
-class NewOrderPage extends StatelessWidget {
-  NewOrderPage({Key? key, this.subPageController}) : super(key: key);
+class NewOrderPage extends StatefulWidget {
+  const NewOrderPage({Key? key, this.subPageController}) : super(key: key);
 
   final TabController? subPageController;
 
@@ -17,18 +16,23 @@ class NewOrderPage extends StatelessWidget {
   /// route name
   static const String routeName = '/neworder';
 
+  @override
+  State<NewOrderPage> createState() => _NewOrderPageState();
+}
+
+class _NewOrderPageState extends State<NewOrderPage> {
   final Duration duration = const Duration(milliseconds: 300);
 
   ///
   /// initial page index
   ///
-  final ValueNotifier<int> initialPage = ValueNotifier<int>(0);
+  late final ValueNotifier<int> initialPage; //= ValueNotifier<int>(0);
 
   ///
   /// controller for page view
 
   ///
-  final PageController pageController = PageController();
+  late final PageController pageController; // = PageController();
 
   ///
   /// next page function
@@ -46,13 +50,20 @@ class NewOrderPage extends StatelessWidget {
   }
 
   @override
+  void initState() {
+    initialPage = ValueNotifier<int>(0);
+    pageController = PageController();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
       valueListenable: initialPage,
       builder: (BuildContext context, int page, Widget? child) {
         return Scaffold(
-          backgroundColor: Colors.white,
-          resizeToAvoidBottomInset: true,
+          backgroundColor: Colors.grey.shade50,
+          resizeToAvoidBottomInset: false,
           appBar: AppBar(
             automaticallyImplyLeading: false,
             backgroundColor: Colors.white,
@@ -61,7 +72,7 @@ class NewOrderPage extends StatelessWidget {
               padding: EdgeInsets.zero,
               splashRadius: 25,
               onPressed: () {
-                subPageController?.animateTo(0);
+                widget.subPageController?.animateTo(0);
                 pageIndex.value = 0;
                 //subPageController?.previousPage(duration: duration, curve: Curves.linear);
               },
@@ -76,12 +87,13 @@ class NewOrderPage extends StatelessWidget {
                 statusBarColor: Colors.white, statusBarIconBrightness: Brightness.dark),
           ),
           body: PageView(
+            key: PageStorageKey("page"),
             controller: pageController,
             onPageChanged: (pageIndex) {
               initialPage.value = pageIndex;
             },
             physics: const NeverScrollableScrollPhysics(),
-            children: [Items(), Shipment(), Tariff(), Info()],
+            children: const [Items(), Shipment(), Tariff(), Info()],
           ),
           persistentFooterButtons: [
             FlatButton.icon(
@@ -97,8 +109,6 @@ class NewOrderPage extends StatelessWidget {
       },
     );
   }
-
-  ///upload
 }
 
 

@@ -38,9 +38,6 @@ Future<void> main() async {
   //   DeviceOrientation.portraitUp,
   //   DeviceOrientation.portraitDown,
   // ]);
-
-  //initAllControllers();
-  AppBindings().dependencies();
   runApp(const SarweAl());
 }
 
@@ -54,12 +51,16 @@ class SarweAl extends StatelessWidget {
       locale: LocaleController().getlocale,
       title: 'Sarweal',
       navigatorKey: Get.key,
+      initialBinding: BindingsBuilder.put(() => AuthManager()),
       translations: LocaleString(),
+
       theme: ThemeData(
-        fontFamily: "Rubik",
+        fontFamily: "Poppins",
+        useMaterial3: true,
         accentColor: primaryColor_2,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+      // getPages: pages,
       onGenerateRoute: onGenerateRoutes,
       initialRoute: BottomNavBar.routeName,
     );
@@ -85,14 +86,4 @@ Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {
       projectId: 'sarweal-270e4',
     ),
   );
-}
-
-class AppBindings implements Bindings {
-  @override
-  void dependencies() {
-    //  Get.put<LocaleController>(LocaleController());
-    Get.put<AuthManager>(AuthManager());
-    //Get.put<OrderController>(OrderController());
-    //Get.put<OrderAddController>(OrderAddController());
-  }
 }
